@@ -49,6 +49,9 @@
         button:hover {
             background-color: #ddd;
         }
+        button.memory {
+            background-color: #f9d371;
+        }
     </style>
 </head>
 <body>
@@ -74,11 +77,18 @@
             <button onclick="calculateResult()">=</button>
             <button onclick="appendNumber('0')" style="grid-column: span 2">0</button>
             <button onclick="appendNumber('.')">.</button>
+            <button onclick="toggleSign()">±</button>
+            <button onclick="square()">x²</button>
+            <button onclick="squareRoot()">√x</button>
+            <button class="memory" onclick="memoryAdd()">M+</button>
+            <button class="memory" onclick="memorySubtract()">M-</button>
+            <button class="memory" onclick="memoryRecall()">RM</button>
         </div>
     </div>
 
     <script>
         let display = document.getElementById('display');
+        let memory = 0;
 
         function appendNumber(number) {
             display.value += number;
@@ -102,6 +112,42 @@
             } catch {
                 display.value = 'Error';
             }
+        }
+
+        function toggleSign() {
+            if (display.value) {
+                display.value = parseFloat(display.value) * -1;
+            }
+        }
+
+        function square() {
+            if (display.value) {
+                display.value = Math.pow(parseFloat(display.value), 2);
+            }
+        }
+
+        function squareRoot() {
+            if (display.value) {
+                display.value = Math.sqrt(parseFloat(display.value));
+            }
+        }
+
+        function memoryAdd() {
+            if (display.value) {
+                memory += parseFloat(display.value);
+                clearDisplay();
+            }
+        }
+
+        function memorySubtract() {
+            if (display.value) {
+                memory -= parseFloat(display.value);
+                clearDisplay();
+            }
+        }
+
+        function memoryRecall() {
+            display.value = memory;
         }
     </script>
 
