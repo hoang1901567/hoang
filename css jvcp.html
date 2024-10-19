@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <title>Chào mừng các bạn</title>
+    <style>
+        #NoiDung {
+            border-style: double; 
+            border-width: 3px; 
+            padding: 4px 4px 1px 4px;
+        }
+        .TieuDe {
+            font-size: 30pt;
+            font-weight: bold;
+        }
+        .NoiDung {
+            font-size: 15pt;
+            font-style: italic;
+        }
+    </style>
+    <script>
+        function MauXanh() {
+            document.getElementById("NoiDung").style.backgroundColor = "Green";
+        }
+        
+        function MauDo() {
+            document.getElementById("NoiDung").style.backgroundColor = "Red";
+        }
+        
+        function MauVang() {
+            document.getElementById("NoiDung").style.backgroundColor = "Yellow";
+        }
+        
+        function KhongMau() {
+            document.getElementById("NoiDung").style.backgroundColor = "";
+        }
+
+        function setFontSize() {
+            const size = document.getElementById("fontSizeSelect").value;
+            document.getElementById("NoiDung").style.fontSize = size;
+        }
+
+        function setHeight() {
+            const height = document.getElementById("heightSelect").value;
+            document.getElementById("NoiDung").style.height = height;
+        }
+    </script>
+</head>
+<body>
+    <p class="TieuDe">JAVASCRIPT và CSS</p>
+    <p>
+        <input type="button" value="Xanh" onclick="MauXanh()">
+        <input type="button" value="Đỏ" onclick="MauDo()">
+        <input type="button" value="Vàng" onclick="MauVang()">
+        <input type="button" value="Không màu" onclick="KhongMau()">
+    </p>
+    <p>
+        <select id="fontSizeSelect">
+            <option value="20px">20px</option>
+            <option value="40px">40px</option>
+            <option value="90px">90px</option>
+        </select>
+        <input type="button" value="Đặt cỡ chữ" onclick="setFontSize()">
+    </p>
+    <p>
+        <select id="heightSelect">
+            <option value="100px">100px</option>
+            <option value="200px">200px</option>
+            <option value="400px">400px</option>
+        </select>
+        <input type="button" value="Đặt chiều cao" onclick="setHeight()">
+        <input type="button" value="Tăng chiều cao" onclick="setHeight()">
+    </p>
+    <div id="NoiDung" class="NoiDung">
+        Xin chào các bạn!
+    </div>
+</body>
+</html>
